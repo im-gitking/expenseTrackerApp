@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - Expense Tracker App</title>
+</head>
+<body>
+    <main>
+        <form class="signupForm" action="/" method="post">
+            <label for="name">Enter Name:</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="email">Enter Email:</label>
+            <input type="text" name="email" id="email" required>
+
+            <label for="password">Enter Password:</label>
+            <input type="text" name="password" id="password" required>
+
+            <input type="submit" value="Signup" id="signupBtn">
+        </form>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"></script>
+    <script src="../public/js/signup.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Daily Expenses - Expense Tracker App</title>
+</head>
+
+<body>
+    <header>
+        <div class="premium">
+            <button class="buyPremium">Buy Premium</button>
+        </div>
+        <button class="leaderBtn">Show LeaderBoard</button>
+        <button class="downloadExpenses">Download</button>
+    </header>
+    <main>
+        <form class="addExpenseForm" action="/" method="post">
+
+            <label for="expenseamount">Choose Expense Amount:</label>
+            <input type="text" name="expenseamount" id="expenseamount" required>
+
+            <label for="description">Write Description:</label>
+            <input type="text" name="description" id="description" required>
+
+            <label for="category">Choose Category:</label>
+            <select name="category" id="category" required>
+                <option value="Food">Food</option>
+                <option value="Electicity">Electicity</option>
+                <option value="Water">Water</option>
+                <option value="Study">Study</option>
+                <option value="Extra">Extra</option>
+            </select>
+
+            <input type="submit" value="Add Expense" id="addExpenseBtn">
+        </form>
+
+        <div class="expenses">
+            <div class="rowsPerPage">
+                <label for="rows">Rows per page:</label>
+                <select name="rows" id="rows" required>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+            <div class="seeExpenses">
+                <ul class="expenseList"></ul>
+            </div>
+            <div class="paginations"></div>
+        </div>
+
+        <div class="leaderBoard">
+            <ol class="userList"></ol>
+        </div>
+    </main>
+
+    <script src="../public/js/addExpense.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="../public/js/premuim.js"></script>
+    <script src="../public/js/leaderboard.js"></script>
+    <script src="../public/js/downloadExpense.js"></script>
+    <script src="../public/js/pagination.js"></script>
+</body>
+
+</html>
