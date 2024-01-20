@@ -8,7 +8,7 @@ signupForm.addEventListener('submit', signupSubmit);
 async function signupSubmit(e) {
     e.preventDefault();
     try {
-        const signupSubmitedData = await axios.post(`http://localhost:3000/user/signup`, {
+        const signupSubmitedData = await axios.post(`http://13.48.27.91:3000/user/signup`, {
             name: name.value,
             email: email.value,
             password: password.value

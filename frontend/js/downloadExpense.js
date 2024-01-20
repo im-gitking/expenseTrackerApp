@@ -3,7 +3,7 @@ const downloadExpenses = document.querySelector('.downloadExpenses');
 downloadExpenses.addEventListener('click', downloadFunction);
 async function downloadFunction(e) {
     try {
-        const UserExpenses = await axios.get('http://localhost:3000/expenses/download', { headers: { Authorization: token } });
+        const UserExpenses = await axios.get('http://13.48.27.91:3000/expenses/download', { headers: { Authorization: token } });
         console.log(UserExpenses.data);
         if (UserExpenses.data.success === true) {
             const a = document.createElement('a');

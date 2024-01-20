@@ -5,7 +5,7 @@ const buyPremium = document.querySelector('.buyPremium');
 buyPremium.addEventListener('click', buyPremiumActions);
 async function buyPremiumActions(e) {
     try {
-        const response = await axios.get(`http://localhost:3000/purchase/premiumMembership`, { headers: { Authorization: token, price: 250000 } });
+        const response = await axios.get(`http://13.48.27.91:3000/purchase/premiumMembership`, { headers: { Authorization: token, price: 250000 } });
         console.log(response);
         const options = {
             key: response.data.key_id,  // taking API Key Id
@@ -14,7 +14,7 @@ async function buyPremiumActions(e) {
             handler: async function (response) {     // hendler is a callback, helps to notify our server that payment was success
                 try {
                     // console.log(response.razorpay_payment_id);
-                    const res = await axios.post(`http://localhost:3000/purchase/updateTransactionStatus`,
+                    const res = await axios.post(`http://13.48.27.91:3000/purchase/updateTransactionStatus`,
                         {
                             order_id: options.order_id,
                             payment_id: response.razorpay_payment_id

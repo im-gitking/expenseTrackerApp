@@ -12,7 +12,7 @@ resetPassForm.addEventListener('submit', changePassword);
 async function changePassword(e) {
     e.preventDefault();
     try {
-        const response = await axios.post(`http://localhost:3000/password/resetpassword/${resetId}`, {
+        const response = await axios.post(`http://13.48.27.91:3000/password/resetpassword/${resetId}`, {
             password: newPassoword.value
         });
         console.log(response.data.uuid);

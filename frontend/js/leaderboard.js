@@ -10,7 +10,7 @@ const leaderBoardList = (user) => {
 
 leaderBtn.onclick = async (e) => {
     try {
-        const users = await axios.get(`http://localhost:3000/premiumFeatures/leaderboard`, { Authorization: token });
+        const users = await axios.get(`http://13.48.27.91:3000/premiumFeatures/leaderboard`, { Authorization: token });
         if(document.querySelector('.userList h2') && document.querySelector('.leaders')) {
             document.querySelector('.userList h2').remove();
             document.querySelector('.leaders').remove();

@@ -35,7 +35,7 @@ app.use(helmet());
 app.use(compression());
 
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })  // a appends each entry, instead of rewiting last entrry
-app.use(morgan('combined', { stream: accessLogStream }));
+app.use(morgan('combined', { stream: accessLogStream }));    // Logging HTTP requests & errors
 
 // Routes
 app.use('/user', signupRoutes);
@@ -44,6 +44,16 @@ app.use('/expenses', expenseRoutes);
 app.use('/purchase', purchaseRoutes);
 app.use('/premiumFeatures', leaderboardRoutes);
 app.use('/password', passwordRoutes);
+
+app.use(function(req, res, next) { 
+    res.removeHeader("Content-Security-Policy");
+    next(); 
+})
+
+app.use((req, res) => {
+    console.log(req.url);
+    res.sendFile(path.join(__dirname, `frontend/${req.url}`));
+})
 
 // Associations
 Users.hasMany(Expenses);

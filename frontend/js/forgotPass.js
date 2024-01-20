@@ -5,7 +5,7 @@ forgotPassForm.addEventListener('submit', forgotPassActions);
 async function forgotPassActions(e) {
     try {
         e.preventDefault();
-        const response = await axios.post('http://localhost:3000/password/forgotpassword', {
+        const response = await axios.post('http://13.48.27.91:3000/password/forgotpassword', {
             email: email.value
         });
         forgotPassForm.remove();

@@ -37,7 +37,7 @@ async function showExpenses(e) {
         }
         
         // pagination and expenselist showing
-        /*const getExpenses = await axios.get('http://localhost:3000/expenses/addExpense', { headers: { "Authorization": token } });
+        /*const getExpenses = await axios.get('http://13.48.27.91:3000/expenses/addExpense', { headers: { "Authorization": token } });
         getExpenses.data.forEach(expense => {
             addToExpenseList(expense);
         });*/
@@ -57,7 +57,7 @@ async function postExpenses(e) {
             description: description.value,
             category: category.value
         };
-        const postedExpense = await axios.post('http://localhost:3000/expenses/addExpense', expense, { headers: { "Authorization": token } });
+        const postedExpense = await axios.post('http://13.48.27.91:3000/expenses/addExpense', expense, { headers: { "Authorization": token } });
         addToExpenseList(postedExpense.data);
     }
     catch (err) {
@@ -72,7 +72,7 @@ async function deleteExpense(e) {
         if (e.target.classList.contains('deleteExpense')) {
             const expenseId = e.target.id;
             // console.log(expenseId);
-            const deletRequest = await axios.delete(`http://localhost:3000/expenses/addExpense/${expenseId}`, { headers: { "Authorization": token } });
+            const deletRequest = await axios.delete(`http://13.48.27.91:3000/expenses/addExpense/${expenseId}`, { headers: { "Authorization": token } });
             // console.log(deletRequest.data);
             e.target.parentElement.remove();
         }

@@ -7,7 +7,7 @@ async function addPaginations(e, targetPage) {
     const rowNum = localStorage.getItem('rowNum') || 5;
 
     try {
-        const paginationData = await axios.get(`http://localhost:3000/expenses/pagination?page=${pageNum}&rows=${rowNum}`, { headers: { "Authorization": token } });
+        const paginationData = await axios.get(`http://13.48.27.91:3000/expenses/pagination?page=${pageNum}&rows=${rowNum}`, { headers: { "Authorization": token } });
 
         // Clear the expense list and add new expenses
         expenseList.innerHTML = '';
