@@ -52,7 +52,7 @@ app.use(function(req, res, next) {
 
 app.use((req, res) => {
     console.log(req.url);
-    console.log(`Request recieved`);
+    console.log(`Req recieved`);
     res.sendFile(path.join(__dirname, `frontend/${req.url}`));
 })
 
