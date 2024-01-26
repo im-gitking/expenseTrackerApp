@@ -33,7 +33,7 @@ async function showExpenses(e) {
 
         if(userDetails.isPremium === true) {
             document.querySelector('.buyPremium').remove();
-            document.querySelector('.premium').innerHTML = '<p>You are Premium User</p>';
+            document.querySelector('.premium').innerHTML = '<p>⭐ Premium User</p>';
         }
         
         // pagination and expenselist showing

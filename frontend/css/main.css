@@ -124,7 +124,7 @@ input[type=submit]:hover {
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
-    margin: 1rem 0;
+    margin: 2rem 0;
 }
 
 .rowsPerPage {
@@ -159,6 +159,7 @@ input[type=submit]:hover {
     align-items: center;
     flex-wrap: nowrap;
     justify-content: flex-start;
+    padding-left: 1rem;
 }
 
 .pagination-section h4 {
