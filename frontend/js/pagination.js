@@ -22,7 +22,7 @@ async function addPaginations(e, targetPage) {
         paginations.innerHTML = '';
 
         if (pageNum > 1) {
-            paginations.innerHTML += `<button id="${pageNum - 1}" class="pageNumber">< Previous</button>`;
+            paginations.innerHTML += `<button id="${pageNum - 1}" class="pageNumber side">< Previous</button>`;
         }
 
         if (1 < pageNum - 2) {
@@ -32,7 +32,7 @@ async function addPaginations(e, targetPage) {
         // if pagination's current & first page (or last & current page) has difference of 2+ then add "..." in between
         for (let i = Math.max(1, pageNum - 2); i <= Math.min(lastPageNum, pageNum + 2); i++) {
             if (i === pageNum) {
-                paginations.innerHTML += `<button id="${i}" class="pageNumber"><strong>${i}</strong></button>`;
+                paginations.innerHTML += `<button id="${i}" class="pageNumber active"><strong>${i}</strong></button>`;
             }
             else if(pageNum === 1 + 3 && i === 1 + 1) {     // 1..2,3,4, -> so skiping 2 here -> 1...3,4
                 continue;
@@ -50,7 +50,7 @@ async function addPaginations(e, targetPage) {
         }
 
         if (pageNum < lastPageNum) {
-            paginations.innerHTML += `<button id="${pageNum + 1}" class="pageNumber">Next ></button>`;
+            paginations.innerHTML += `<button id="${pageNum + 1}" class="pageNumber side">Next ></button>`;
         }
     }
     catch (err) {

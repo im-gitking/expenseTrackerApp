@@ -10,7 +10,7 @@ const token = localStorage.getItem('token');
 
 const addToExpenseList = (expense) => {
     const newLi = document.createElement('li');
-    newLi.innerHTML = `<span>${expense.expenseamount} - ${expense.category} - ${expense.description} </span><button class="deleteExpense" id="${expense.id}">Delete Expense</button>`;
+    newLi.innerHTML = `<span>${expense.expenseamount} - ${expense.category} - ${expense.description} </span><button class="deleteExpense" id="${expense.id}">✘</button>`;
     expenseList.appendChild(newLi);
 }
 

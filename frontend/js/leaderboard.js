@@ -12,10 +12,10 @@ leaderBtn.onclick = async (e) => {
     try {
         const users = await axios.get(`http://13.48.27.91:3000/premiumFeatures/leaderboard`, { Authorization: token });
         if(document.querySelector('.userList h2') && document.querySelector('.leaders')) {
-            document.querySelector('.userList h2').remove();
+            document.querySelector('.leaderBoard h2').remove();
             document.querySelector('.leaders').remove();
         }
-        document.querySelector('.userList').innerHTML = `<h2>Leader Board:</h2>`;
+        document.querySelector('.leaderBoard').innerHTML = `<div class="leader-header"><h3>🏆 Leader Board:</h3></div><ol class="userList"></ol>`;
         users.data.forEach(user => {
             leaderBoardList(user);
         });
