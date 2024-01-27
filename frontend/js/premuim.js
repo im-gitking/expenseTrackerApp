@@ -21,7 +21,7 @@ async function buyPremiumActions(e) {
                         }, { headers: { Authorization: token } });
 
                     e.target.remove();
-                    document.querySelector('.premium').innerHTML = '<p>⭐Premium User</p>';
+                    document.querySelector('.premium').innerHTML = '<p>⭐ Premium User</p>';
 
                     localStorage.setItem('token', res.data.token);
                     alert('You are a Premium User Now');
