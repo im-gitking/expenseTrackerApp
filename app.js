@@ -37,7 +37,7 @@ app.use(compression());
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })  // a appends each entry, instead of rewiting last entrry
 app.use(morgan('combined', { stream: accessLogStream }));    // Logging HTTP requests & errors
 
-// Routes
+// Routes 
 app.use('/user', signupRoutes);
 app.use('/user', loginRoutes);
 app.use('/expenses', expenseRoutes);
