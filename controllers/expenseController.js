@@ -1,22 +1,22 @@
-const sequelize = require('../util/database');
+const Expense = require("../models/expense");
 
 // Add Expense
 exports.postExpense = async (req, res, next) => {
-    const t = await sequelize.transaction();
-    try {
-        const data = req.body;
-        const expense = await req.user.createExpense(data, { transaction: t });
+  try {
+    const data = req.body;
+    console.log(data);
 
-        req.user.totalExpense += data.expenseamount;
-        await req.user.save({ transaction: t });
+    const newExpense = new Expense({ ...data, userId: req.user });
 
-        await t.commit();
-        res.json(expense);
-    }
-    catch (err) {
-        await t.rollback();
-        console.log(err);
-    }
+    const expense = await newExpense.save();
+
+    req.user.totalExpense += data.expenseamount;
+    await req.user.save();
+
+    res.json(expense);
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 /*// Expense Show -> Moved to pagination part
@@ -27,25 +27,22 @@ exports.getExpense = (req, res, next) => {
             return res.json(expenses);
         })
         .catch(err => console.log(err));
-};*/ 
+};*/
 
 // Delete Expense
 exports.deleteExpense = async (req, res, next) => {
-    const t = await sequelize.transaction();
-    try {
-        const expenseId = req.params.id;
-        // const expense = await Expenses.findByPk(expenseId, { transaction: t });
-        const expense = await req.user.removeExpense(expenseId, { transaction: t });
+  try {
+    const expenseId = req.params.id;
 
-        req.user.totalExpense -= expense.expenseamount;
-        await req.user.save({ transaction: t });
+    const expense = await Expense.findByIdAndDelete(expenseId);
 
-        await t.commit();
-        res.json('SUCCESS');
-    }
-    catch (err) {
-        await t.rollback();
-        console.log(err);
-    }
+    console.log(expense);
+
+    req.user.totalExpense -= expense.expenseamount;
+    await req.user.save();
+
+    res.json("SUCCESS");
+  } catch (err) {
+    console.log(err);
+  }
 };
-
